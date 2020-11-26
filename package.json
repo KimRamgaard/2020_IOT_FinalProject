@@ -1,0 +1,29 @@
+{
+  "name": "2020_iot_finalproject",
+  "version": "0.0.1",
+  "description": "contains the website for my final Internet of things project at EASV 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KimRamgaard/2020_IOT_FinalProject.git"
+  },
+  "keywords": [
+    "IOT",
+    "Personal"
+  ],
+  "author": "Kim Ramgaard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KimRamgaard/2020_IOT_FinalProject/issues"
+  },
+  "homepage": "https://github.com/KimRamgaard/2020_IOT_FinalProject#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
