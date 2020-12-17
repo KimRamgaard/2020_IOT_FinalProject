@@ -8,8 +8,10 @@ const sensorDataApi = require('./api/sensorData')
 const app = express()
 
 // setup the configuation variables
-var env = require('dotenv')
-env.config()
+const dotEnvResult = require('dotenv').config({ path: (__dirname + "/.env") })
+if (dotEnvResult.error) {
+  throw dotEnvResult.error
+}
 
 app.use(morgan('common'))
 app.use(helmet())
