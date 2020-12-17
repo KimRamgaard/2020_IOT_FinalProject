@@ -2,9 +2,11 @@
   "name": "2020_iot_finalproject",
   "version": "0.0.1",
   "description": "contains the website for my final Internet of things project at EASV 2020",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "lint": "eslint src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,11 +24,15 @@
   },
   "homepage": "https://github.com/KimRamgaard/2020_IOT_FinalProject#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.16"
+    "helmet": "^4.2.0",
+    "mongoose": "^5.10.16",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "eslint": "^7.15.0",
     "nodemon": "^2.0.6"
   }
 }
