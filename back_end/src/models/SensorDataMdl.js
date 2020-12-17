@@ -1,8 +1,11 @@
 //Mongoose schema for sensordata
-const { mongoose } = require("mongoose");
+const mongoose = require( 'mongoose' )
+
 
 //Define schema
-const {schema} = mongoose
+const schema =  mongoose.Schema
+
+
 const SensorDataSchema = new schema({
     topic: {
         type: String, 
@@ -14,5 +17,7 @@ const SensorDataSchema = new schema({
 })
 
 //create and export model from schema
-const SensorData = mongoose.model('SensorData', SensorDataSchema)
-module.exports = SensorData
+
+const SensorDataModel = mongoose.model('SensorData', SensorDataSchema)
+module.exports = SensorDataModel
+
