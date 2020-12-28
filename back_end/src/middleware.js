@@ -10,23 +10,21 @@ const notFound = (request, response, next) =>{
 //disable lint because next is needed in to get correct path
 //eslint-disable-next-line no-unused-vars
 const errorHandler = (error, request, response, next) =>{
-    var statusCode
+    var statusCode = response.statusCode
     
     //Handle status code
-    if(response.statusCode === 200){
+    if(statusCode === 200){
         switch (error.name) {
             case "ValidationError":
-                statusCode = 403 // I know what you want, but I won't do that
+                statusCode = 403 // i'm sorry Dave, i'm afraid i can't do that
                 break;
             default:
                 console.log("Warning, following error came to error middleLayer and was not given a proper error code -> " + error )
                 statusCode = 500
                 break;
         }
-
     }
-    
-    
+       
     response.status(statusCode)
     response.json({
       message: error.message,
