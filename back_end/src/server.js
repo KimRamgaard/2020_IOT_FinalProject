@@ -1,22 +1,22 @@
-const express = require('express')
-const morgan = require('morgan')
-const helmet = require('helmet')
-const cors = require('cors')
-//TODO might need to move
-const mqtt = require('mqtt')
-
-
-const middleware = require('./middleware')
-const sensorDataApi = require('./api/sensorData')
-const mqttClient = require('./mqttClient')
-const app = express()
-
 // setup the configuation variables
 const dotEnvResult = require('dotenv').config({ path: (__dirname + "/.env") })
 if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
 
+//imports
+const express = require('express')
+const morgan = require('morgan')
+const helmet = require('helmet')
+const cors = require('cors')
+
+//Custom modules
+require('./mqttClient')
+const middleware = require('./middleware')
+const sensorDataApi = require('./api/sensorData')
+const app = express()
+
+//setup express
 app.use(morgan('common'))
 app.use(helmet())
 app.use(express.json()) //bodyparser
@@ -31,7 +31,6 @@ const { MongooseDocument } = require('mongoose')
 dbConnection.connectToDb();
 
 //middleware
-
 app.use('/api/sensordata', sensorDataApi)
 
 app.use(middleware.notFound)
