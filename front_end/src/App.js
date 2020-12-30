@@ -27,7 +27,7 @@ function App() {
       <ul>
       {
         sensordata.map(entry => (
-          <li>{entry.topic}</li>
+          <li key={entry._id}>{entry.topic}</li>
         ))
       }
       </ul>
