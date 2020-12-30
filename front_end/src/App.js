@@ -1,40 +1,37 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import './App.css';
+import  {listSensordata} from './API'
+import { useEffect, useState } from 'react';
 
 
 
 
-function App({UserName}) {
+function App() {
+
+  const [sensordata, setSensordata] = useState([])
   
-  const [userName, setUserName] = useState(UserName)
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
 
   useEffect(() => {
-    if(!userName) return
-    setLoading(true)
-    fetch(`https://api.github.com/users/${userName}`)
-      .then((response) => response.json())
-      .then(setData)
-      .then(() => setLoading(false))
-      .catch(setError)  
-  }, [userName])
-
-  if (loading) return <h1>loadning...</h1>; 
-  if (error) 
-    return <pre>{JSON.stringify(error, null, 2)}</pre>
-  if (!data) return null
+    //iffy
+    (async() => {
+       const _sensordata = await listSensordata();
+       setSensordata(_sensordata)
+       console.log(_sensordata)
+    })()
+  }, [])
 
 
   return( 
     <div>
-      <h1>{data.login}</h1>
-      <h2>{data.email}</h2>
-      <img alt={data.login} src={data.avatar_url}/><br></br>
+      <h1>testing...</h1>
+      <ul>
+      {
+        sensordata.map(entry => (
+          <li>{entry.topic}</li>
+        ))
+      }
+      </ul>
       
-      <input type="text" value={userName} onChange={ e => {setUserName(e.target.value)}}/>
     </div>
   )
 }
