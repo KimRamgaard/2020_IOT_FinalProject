@@ -26,6 +26,3 @@ mqttClient.on('message', function(topic, payload, packet){
 mqttClient.on('error', function(err){
     console.log(err)
 })
-
-//TODO REMOVE tester
-mqttClient.publish('test', 'test')

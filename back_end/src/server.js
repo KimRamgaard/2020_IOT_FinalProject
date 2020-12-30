@@ -31,7 +31,7 @@ const { MongooseDocument } = require('mongoose')
 dbConnection.connectToDb();
 
 //middleware
-app.use('/api/sensordata', sensorDataApi)
+app.use('/sensordata', sensorDataApi)
 
 app.use(middleware.notFound)
 app.use(middleware.errorHandler)
