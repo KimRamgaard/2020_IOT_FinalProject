@@ -11,7 +11,7 @@ const helmet = require('helmet')
 const cors = require('cors')
 
 //Custom modules
-require('./mqttClient')
+
 const middleware = require('./middleware')
 const sensorDataApi = require('./api/sensorData')
 const app = express()

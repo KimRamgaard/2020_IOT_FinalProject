@@ -1,37 +1,13 @@
 import React from "react"
 import './App.css';
-import  {listSensordata} from './API'
-import { useEffect, useState } from 'react';
-
-
-
+import Chart from './rechart_crow'
 
 function App() {
 
-  const [sensordata, setSensordata] = useState([])
-  
-
-  useEffect(() => {
-    //iffy
-    (async() => {
-       const _sensordata = await listSensordata();
-       setSensordata(_sensordata)
-       console.log(_sensordata)
-    })()
-  }, [])
-
-
   return( 
     <div>
-      <h1>testing...</h1>
-      <ul>
-      {
-        sensordata.map(entry => (
-          <li key={entry._id}>{entry.topic}</li>
-        ))
-      }
-      </ul>
-      
+      <h1>Crowbox</h1>
+      <Chart/>     
     </div>
   )
 }
